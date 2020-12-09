@@ -26,11 +26,11 @@
 #endif
 
 #ifndef IRPIN
-#define IRPIN  4  //infrared pin (-1 to disable)  MagicHome: 4, H801 Wifi: 0
+#define IRPIN  -1  //infrared pin (-1 to disable)  MagicHome: 4, H801 Wifi: 0
 #endif
 
 #ifndef RLYPIN
-#define RLYPIN 12  //pin for relay, will be set HIGH if LEDs are on (-1 to disable). Also usable for standby leds, triggers,...
+#define RLYPIN -1  //pin for relay, will be set HIGH if LEDs are on (-1 to disable). Also usable for standby leds, triggers,...
 #endif
 
 #ifndef AUXPIN
@@ -52,9 +52,19 @@
 // multipin mod configuration:
 
 // How many strips will be connected. currently up to 8 strips is possible.
-#define NUM_STRIPS 2
+#define NUM_STRIPS 6
 
+#if defined(ARDUINO_FEATHER_ESP32) // Feather Huzzah32
 // What pins to use:
+#define STRIP1_PIN 5 // manually specify all pins here.  2  is default LEDPIN for esp32dev boards.
+#define STRIP2_PIN 14
+#define STRIP3_PIN 15
+#define STRIP4_PIN 32
+#define STRIP5_PIN 13
+#define STRIP6_PIN 12
+#define STRIP7_PIN 27
+#define STRIP8_PIN 33
+#else
 #define STRIP1_PIN 2 // manually specify all pins here.  2  is default LEDPIN for esp32dev boards.
 #define STRIP2_PIN 13
 #define STRIP3_PIN 12
@@ -63,18 +73,30 @@
 #define STRIP6_PIN 26
 #define STRIP7_PIN 25
 #define STRIP8_PIN 33
+#endif  // Feather Hazzah32
 
 // How many LEDs are on each strip:
-#define STRIP1_LEDCOUNT 18
-#define STRIP2_LEDCOUNT 18
-#define STRIP3_LEDCOUNT 18
-#define STRIP4_LEDCOUNT 18
-#define STRIP5_LEDCOUNT 18
-#define STRIP6_LEDCOUNT 18
-#define STRIP7_LEDCOUNT 18
-#define STRIP8_LEDCOUNT 18
 
+#define STRIP1_LEDCOUNT 50
+#define STRIP2_LEDCOUNT 50
+#define STRIP3_LEDCOUNT 50
+#define STRIP4_LEDCOUNT 50
+#define STRIP5_LEDCOUNT 50
+#define STRIP6_LEDCOUNT 50
+#define STRIP7_LEDCOUNT 50
+#define STRIP8_LEDCOUNT 50
+
+#if defined(ARDUINO_FEATHER_ESP32) // Feather Huzzah32
 // What pixelmethod to use on each strip?
+#define STRIP1_PIXELMETHOD NeoEsp32Rmt0Ws2811Method    // the board specific PIXELMETHOD variable is being ignored now, so make sure it's set here!
+#define STRIP2_PIXELMETHOD NeoEsp32Rmt1Ws2811Method    // define what method you want to use to drive each strip. For esp32 RMT 0-7 works best.
+#define STRIP3_PIXELMETHOD NeoEsp32Rmt2Ws2811Method
+#define STRIP4_PIXELMETHOD NeoEsp32Rmt3Ws2811Method
+#define STRIP5_PIXELMETHOD NeoEsp32Rmt4Ws2811Method
+#define STRIP6_PIXELMETHOD NeoEsp32Rmt5Ws2811Method
+#define STRIP7_PIXELMETHOD NeoEsp32Rmt6Ws2811Method
+#define STRIP8_PIXELMETHOD NeoEsp32Rmt7Ws2811Method
+#else
 #define STRIP1_PIXELMETHOD NeoEsp32Rmt0Ws2812xMethod    // the board specific PIXELMETHOD variable is being ignored now, so make sure it's set here!
 #define STRIP2_PIXELMETHOD NeoEsp32Rmt1Ws2812xMethod    // define what method you want to use to drive each strip. For esp32 RMT 0-7 works best.
 #define STRIP3_PIXELMETHOD NeoEsp32Rmt2Ws2812xMethod
@@ -83,6 +105,7 @@
 #define STRIP6_PIXELMETHOD NeoEsp32Rmt5Ws2812xMethod
 #define STRIP7_PIXELMETHOD NeoEsp32Rmt6Ws2812xMethod
 #define STRIP8_PIXELMETHOD NeoEsp32Rmt7Ws2812xMethod
+#endif // Feather Hazzah32
 
 //END CONFIGURATION
 
