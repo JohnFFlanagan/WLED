@@ -86,17 +86,6 @@
 #define STRIP7_LEDCOUNT 50
 #define STRIP8_LEDCOUNT 50
 
-#if defined(ARDUINO_FEATHER_ESP32) // Feather Huzzah32
-// What pixelmethod to use on each strip?
-#define STRIP1_PIXELMETHOD NeoEsp32Rmt0Ws2811Method    // the board specific PIXELMETHOD variable is being ignored now, so make sure it's set here!
-#define STRIP2_PIXELMETHOD NeoEsp32Rmt1Ws2811Method    // define what method you want to use to drive each strip. For esp32 RMT 0-7 works best.
-#define STRIP3_PIXELMETHOD NeoEsp32Rmt2Ws2811Method
-#define STRIP4_PIXELMETHOD NeoEsp32Rmt3Ws2811Method
-#define STRIP5_PIXELMETHOD NeoEsp32Rmt4Ws2811Method
-#define STRIP6_PIXELMETHOD NeoEsp32Rmt5Ws2811Method
-#define STRIP7_PIXELMETHOD NeoEsp32Rmt6Ws2811Method
-#define STRIP8_PIXELMETHOD NeoEsp32Rmt7Ws2811Method
-#else
 #define STRIP1_PIXELMETHOD NeoEsp32Rmt0Ws2812xMethod    // the board specific PIXELMETHOD variable is being ignored now, so make sure it's set here!
 #define STRIP2_PIXELMETHOD NeoEsp32Rmt1Ws2812xMethod    // define what method you want to use to drive each strip. For esp32 RMT 0-7 works best.
 #define STRIP3_PIXELMETHOD NeoEsp32Rmt2Ws2812xMethod
@@ -105,7 +94,6 @@
 #define STRIP6_PIXELMETHOD NeoEsp32Rmt5Ws2812xMethod
 #define STRIP7_PIXELMETHOD NeoEsp32Rmt6Ws2812xMethod
 #define STRIP8_PIXELMETHOD NeoEsp32Rmt7Ws2812xMethod
-#endif // Feather Hazzah32
 
 //END CONFIGURATION
 
