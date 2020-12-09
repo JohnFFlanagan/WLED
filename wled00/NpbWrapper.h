@@ -86,6 +86,7 @@
 #define STRIP7_LEDCOUNT 50
 #define STRIP8_LEDCOUNT 50
 
+// What pixelmethod to use on each strip?
 #define STRIP1_PIXELMETHOD NeoEsp32Rmt0Ws2812xMethod    // the board specific PIXELMETHOD variable is being ignored now, so make sure it's set here!
 #define STRIP2_PIXELMETHOD NeoEsp32Rmt1Ws2812xMethod    // define what method you want to use to drive each strip. For esp32 RMT 0-7 works best.
 #define STRIP3_PIXELMETHOD NeoEsp32Rmt2Ws2812xMethod
