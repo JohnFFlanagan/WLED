@@ -6,7 +6,6 @@
 
 [platformio]
 default_envs = WLED_tasmota_1M
-DUMMY LINE FOR TEST
 
 [env:WLED_tasmota_1M]
 board = esp01_1m
